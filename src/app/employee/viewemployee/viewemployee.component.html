@@ -1,0 +1,60 @@
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"> <a><i class="bi bi-house-door-fill home " style="color: #6200EE;"></i></a></li>
+            <span class="dot_icon"></span>
+            <li class="breadcrumb-item"><a href="">Login</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a routerLink="/employeeList">Employee List</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a>Employee Details</a></li>
+        </ol>
+    </nav>
+
+    <div class="container-fluid" id="container2" >
+        <div class="row mb-4">
+            <div class="col">
+              <div class="well span2">
+                <h1 class="my-4 mx-3 heading">Employee Details</h1>
+              </div>
+            </div>
+        </div>
+
+            <div class="row mt-4">
+                <div class="col-3 mb-4" >Address Line 1 :</div>
+                <div class="col-3 mb-4">{{employeeList.addressLine1}}</div>
+                <div class="col-3 mb-4">Address Line 2 :</div>
+                <div class="col-3 mb-4">{{employeeList.addressLine2}}</div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-3 mb-4" >Employee Id :</div>
+                <div class="col-3 mb-4">{{employeeList.id}}</div>
+                <div class="col-3 mb-4">Employee Name :</div>
+                <div class="col-3 mb-4">{{employeeList.firstName}} {{employeeList.lastName}}</div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-3 mb-4" >Employee City :</div>
+                <div class="col-3 mb-4">{{employeeList.city}}</div>
+                <div class="col-3 mb-4">Employee State :</div>
+                <div class="col-3 mb-4">{{employeeList.state}}</div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-3 mb-4" >Employee Number :</div>
+                <div class="col-3 mb-4">{{employeeList.phone}}</div>
+                <div class="col-3 mb-4">Employee Email :</div>
+                <div class="col-3 mb-4">{{employeeList.email}}</div>
+            </div>
+            
+            <div class="row mt-4 mb-3">
+                <div class="col-3 mb-4" >Postal Code :</div>
+                <div class="col-3 mb-4" >{{employeeList.postalCode}}</div>
+                <div class="col-3 mb-4" >Company  :</div>
+                <div class="col-3 mb-4" >{{employeeList.company}}</div>
+            </div>
+
+            <div class="row mb-4">
+                <button class="btn btn-primary mx-3 mb-4" style="width: 10%;"(click)="onBack()">Back</button>
+              </div>
+    </div>
+</div>

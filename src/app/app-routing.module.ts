@@ -1,7 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmployeeComponent } from './employee/employee.component';
+import { AddemployeeComponent } from './employee/addemployee/addemployee.component';
+import { EditemployeeComponent } from './employee/editemployee/editemployee.component';
+import { ViewemployeeComponent } from './employee/viewemployee/viewemployee.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'employeeList',component:EmployeeComponent
+  },
+  {
+   path:'',redirectTo:"login",pathMatch:'full' 
+  },
+  {
+    path:'login',component:LoginComponent
+  },
+  {
+    path:'signup',component:SignupComponent
+  },
+  {
+    path:'addemployee',component:AddemployeeComponent
+  },
+  {
+    path:'editemployee/:id',component:EditemployeeComponent
+  },
+  {
+    path:'viewemployee/:id',component:ViewemployeeComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

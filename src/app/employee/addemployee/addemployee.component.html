@@ -1,0 +1,114 @@
+<div class="container" >
+    <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"> <a ><i class="bi bi-house-door-fill home "
+               style="color: #6200EE;"></i></a></li>
+         <span class="dot_icon"></span>
+         <!-- <li class="breadcrumb-item"><a href="">Login</a></li> -->
+         <li class="breadcrumb-item" aria-current="page"><a routerLink="../">Employee List</a></li>
+         <li class="breadcrumb-item" aria-current="page"><a>Add New Employee</a></li>
+       </ol>
+     </nav>
+
+
+     <div class="container-fluid" id="container1">
+        <div class="row">
+          <div class="col">
+            <div class="well span2 text-wrap mt-4">
+              <h1 class="heading mx-3">Add new Employee</h1>
+            </div>
+            <div class="col mb-4 mt-4">
+              <i class="bi bi-info-circle-fill mx-3 home"  style="color: #6200EE;"><span class="text text-wrap mt-3 mb-4 mx-1">
+                Add new Employee by giving Information
+              </span></i>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12">
+            <div class="well span2 text-wrap">
+              <h1 class="mx-3 heading">Employee Details</h1>
+            </div>
+          </div>
+
+
+          <div class="col-md-4 mt-4 mb-3">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">First Name</label>
+              <input type="text" class="form-control inputField mx-3" style="width: 90%;" placeholder="Enter Your Name" [(ngModel)]="employee.firstName">
+            </div>
+          </div>
+          <div class="col-md-4 mt-4 mb-3">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">Last Name</label>
+              <input type="text" class="form-control inputField mx-3"style="width: 90%;" placeholder="Enter Your Name" [(ngModel)]="employee.lastName"> 
+            </div>
+          </div>
+         
+
+          <div class="col-12 mb-3">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">Address Line 1</label>
+              <input type="text" class="form-control inputField mx-3"style="width: 63%;" placeholder="Enter Your Name" [(ngModel)]="employee.addressLine1">
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">Address Line 2</label>
+              <input type="text" class="form-control inputField mx-3"style="width: 63%;" placeholder="Enter Your Name"[(ngModel)]="employee.addressLine2">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">City</label>
+              <input type="text" class="form-control inputField mx-3" style="width: 90%;" placeholder="Enter Your City" [(ngModel)]="employee.city">
+            </div>
+          </div>
+          <div class="col-md-4  ">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">State</label>
+              <input type="text" class="form-control inputField mx-3"style="width: 90%;" placeholder="Enter Your State" [(ngModel)]="employee.state">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mt-4">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">Phone Number</label>
+              <input type="tel" class="form-control inputField mx-3" style="width: 90%;" placeholder="Enter Your Phone Number" [(ngModel)]="employee.phone">
+            </div>
+          </div>
+          <div class="col-md-4 mt-4 ">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">Email</label>
+              <input type="email" class="form-control inputField mx-3"style="width: 90%;" placeholder="Enter Your Email"[(ngModel)]="employee.email">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mt-4 mb-3">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">Postal Code</label>
+              <input type="text" class="form-control inputField mx-3" style="width: 90%;" placeholder="Enter Your Postal Code" [(ngModel)]="employee.postalCode">
+            </div>
+          </div>
+          <div class="col-md-4 mt-4 mb-3">
+            <div class="form-outline ILP-Center">
+              <label for="" class="form-label mx-3">Company</label>
+              <input type="text" class="form-control inputField mx-3"style="width: 90%;" placeholder="Enter Your Company" [(ngModel)]="employee.company">
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="row">
+      <button class="btn btn-primary" type="submit" id="submit"(click)="onSubmit()">Submit</button>
+      <button class="btn btn-primary mx-3" type="submit" id="back" (click)="onBack()">Back</button>
+    </div>
+</div>     
