@@ -9,28 +9,28 @@
           <form id="signupForm">
             <!-- Email input -->
             <div class="form-outline mb-2">
-              <input type="email" id="signupEmail" class="form-control form-control-lg"
-                placeholder="Enter your Full Name"[(ngModel)]="user.fullName" [ngModelOptions]="{standalone: true}"/>
               <label class="form-label" >Full Name</label>
+              <input type="email" id="signupEmail" class="form-control form-control-lg"
+                placeholder="Enter your Full Name"[(ngModel)]="user.fullName" [ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;"/>
             </div>
             <div class="form-outline mb-2">
-              <input type="email" id="signupEmail" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" [(ngModel)]="user.email"[ngModelOptions]="{standalone: true}"/>
               <label class="form-label" for="signupEmail">Email address</label>
+              <input type="email" id="signupEmail" class="form-control form-control-lg"
+                placeholder="Enter a valid email address" [(ngModel)]="user.email"[ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;"/>
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-2">
-              <input type="password" id="signupPassword" class="form-control form-control-lg"
-                placeholder="Enter password"[(ngModel)]="user.password" [ngModelOptions]="{standalone: true}"/>
               <label class="form-label" for="signupPassword">Password</label>
+              <input type="password" id="signupPassword" class="form-control form-control-lg"
+                placeholder="Enter password"[(ngModel)]="user.password" [ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;">
             </div>
   
             <!-- Confirm Password input -->
             <div class="form-outline mb-2">
-              <input type="password" id="confirmPassword" class="form-control form-control-lg"
-                placeholder="Confirm password"[(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}"/>
               <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" class="form-control form-control-lg"
+                placeholder="Confirm password"[(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;"/>
             </div>
   
             <!-- Signup button -->

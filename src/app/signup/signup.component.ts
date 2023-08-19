@@ -17,15 +17,15 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   signup(){
-    console.log("User Data=>",this.user);
     
-    this.common.httpPost(SIGNUP,this.user).subscribe((data)=>{
-      if(data.errFlag){
-        alert(String(data.message));
+    this.common.httpPost(SIGNUP,this.user).subscribe({
+      next : data=>{
+        this.common.showMessage(data.response,true);
+      },
+      error : error=>{
+        this.common.showMessage(error.error.message,false);
       }
-      else{
-        alert(String(data.response));
-      }
-    })
+    }
+    )
   }
 }
