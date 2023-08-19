@@ -26,7 +26,16 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.common.httpPost(LOGIN, this.user).subscribe( {
       next: data => {
-          this.common.showMessage(data.response,true);
+        
+        if(data.response[0].role[0].role=="admin"){
+          this.common.showMessage("Admin Login Successfully",true);
+          this.route.navigate(['employeeList']);
+        }
+        if(data.response[0].role[0].role=="user"){
+          this.common.showMessage("User Login Successfully",true);
+          this.route.navigate(['employeeList']);
+        }
+         
           this.route.navigate(['employeeList']);
          },
       error: error => {
