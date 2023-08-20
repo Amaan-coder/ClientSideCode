@@ -67,3 +67,122 @@
     height: 38px;
     width: 90px;
 }
+body{
+    background-color: #f0eef0
+   
+}
+
+.breadcrumb {
+    position: relative;
+    margin-left: 2.5%;
+    margin-top: 2%;
+    font-size: 14px;
+    color: #6200EE;
+    text-decoration: none;
+    font-family: Verdana;
+}
+
+.dot_icon {
+    top: 120px;
+    margin-top: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    left: 162px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #8d8d8d 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.home {
+    top: 73px;
+    left: 129px;
+    width: 18px;
+    height: 17px;
+}
+
+
+a {
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/v (--unnamed-line-spacing-20) var(--unnamed-font-family-roboto);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--main-variant);
+    text-align: left;
+    font: normal normal normal 16px Verdana;
+    letter-spacing: 0px;
+    color: #6200EE;
+    opacity: 1;
+    font-weight: bold;
+    top: 71px;
+    left: 189px;
+    width: 85px;
+    height: 19px;
+}
+
+a:link{
+    text-decoration: none;
+}
+.form-label{
+    font: 15px Verdana;
+    left: 3.0%;
+    color: #6f6f6f;
+    margin-left: 5px;
+    // margin-bottom: -16px;
+    transition: margin-left 0.3s ease-out;
+
+}
+.inputField{
+    width: 70%;
+    height: 48px;
+    background: #f0eef0;
+    border-radius: 4px 4px 0px 0px;
+    border: none;
+    padding: 6px 12px;
+    border-bottom: 1px solid #bbbbbb;
+    font: normal normal normal 16px Verdana;
+    transform: width 0.3s;
+    &::placeholder{
+        opacity: 0.8;
+        color: #6f6f6f;
+    }
+    &:hover{
+        background: #e0e0e0;
+        border-bottom: 0.5px solid #6200ee;
+    }
+    &:focus{
+        background: #f4f4f4;
+        outline: none;
+        border-bottom: 2px solid #6200ee;
+    }
+
+}
+
+.text{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/v (--unnamed-line-spacing-20) var(--unnamed-font-family-verdana);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    /* color: var(--main-variant); */
+    text-align: left;
+    font: normal normal normal 15px Verdana;
+    letter-spacing: 0px;
+    color: #525252;
+    opacity: 1;
+    font-weight: 450;
+    /* top: 71px;
+    left: 189px;
+    width: 85px;
+    height: 19px; */
+}
+.heading{
+    text-align: left;
+    font: normal normal normal 20px/42px Verdana;
+    letter-spacing: 0.01px;
+    color: #161616;
+    font-weight: bold;
+    &:after{
+        content: "";
+        display: block;
+        background: #392bf5;
+        width: 60px;
+        height: 4px;
+    }
+}

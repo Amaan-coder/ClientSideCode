@@ -6,6 +6,8 @@ import { EditemployeeComponent } from './employee/editemployee/editemployee.comp
 import { ViewemployeeComponent } from './employee/viewemployee/viewemployee.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
+import { UserlistComponent } from './userlist/userlist.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,12 @@ const routes: Routes = [
   },
   {
     path:'viewemployee/:id',component:ViewemployeeComponent
+  },
+  {
+    path:'home',component:HomeComponent
+  },
+  {
+    path:'userlist',component:UserlistComponent
   }
 ];
 

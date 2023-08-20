@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
     this.common.httpPost(SIGNUP,this.user).subscribe({
       next : data=>{
         this.common.showMessage(data.response,true);
+        this.router.navigate(['login']);
       },
       error : error=>{
         this.common.showMessage(error.error.message,false);

@@ -27,16 +27,15 @@ export class LoginComponent implements OnInit {
     this.common.httpPost(LOGIN, this.user).subscribe( {
       next: data => {
         
-        if(data.response[0].role[0].role=="admin"){
+        if(data.response.role[0].role=="admin"){
           this.common.showMessage("Admin Login Successfully",true);
-          this.route.navigate(['employeeList']);
+          this.route.navigate(['home']);
         }
-        if(data.response[0].role[0].role=="user"){
+        if(data.response.role[0].role=="user"){
           this.common.showMessage("User Login Successfully",true);
-          this.route.navigate(['employeeList']);
+          this.route.navigate(['home']);
         }
-         
-          this.route.navigate(['employeeList']);
+        this.route.navigate(['home']);
          },
       error: error => {
        this.common.showMessage(error.error.message,false);
