@@ -8,11 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { UserlistComponent } from './userlist/userlist.component';
+import { GuardGuard } from './config/guard.guard';
 
 const routes: Routes = [
-  {
-    path:'employeeList',component:EmployeeComponent
-  },
   {
    path:'',redirectTo:"login",pathMatch:'full' 
   },
@@ -23,6 +21,14 @@ const routes: Routes = [
     path:'signup',component:SignupComponent
   },
   {
+    path:'home',component:HomeComponent,
+    canActivate:[GuardGuard]
+  },
+  {
+    path:'employeeList',component:EmployeeComponent
+  },
+  
+  {
     path:'addemployee',component:AddemployeeComponent
   },
   {
@@ -31,9 +37,7 @@ const routes: Routes = [
   {
     path:'viewemployee/:id',component:ViewemployeeComponent
   },
-  {
-    path:'home',component:HomeComponent
-  },
+ 
   {
     path:'userlist',component:UserlistComponent
   }

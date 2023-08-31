@@ -17,4 +17,8 @@ export class AppComponent implements OnInit{
   login(){
     this.route.navigate(['/login']);
   }
+  logout(){
+    this.commService.setLoggedOut();
+    this.route.navigate(['/login']);
+  }
 }

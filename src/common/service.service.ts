@@ -56,7 +56,7 @@ export class ServiceService {
   }
 
   isLoggedIn(): boolean {
-    return sessionStorage.getItem('login') === 'true';
+    return sessionStorage.getItem('login') ? true:false;
   }
 
   setLoggedIn() {

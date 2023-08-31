@@ -37,7 +37,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="commService.isLoggedIn()">
         <li class="nav-item">
           <a class="nav-link " routerLink="/home" routerLinkActive="active">Home</a>
         </li>
@@ -51,10 +51,10 @@
       </ul>
 
       <!-- logout button -->
-      <div class="d-flex" >
+      <div class="d-flex">
        
-        <button class="btn btn-primary" type="submit" (click)="login()">Login</button>
-      <button class="btn btn-danger mx-3" type="submit">Logout</button>
+        <!-- <button class="btn btn-primary" *ngIf="commService.isLoggedIn()" type="submit" (click)="login()">Login</button> -->
+      <button class="btn btn-danger" *ngIf="commService.isLoggedIn()" type="submit" (click)="logout()">Logout</button>
       </div>
     </div>
   
