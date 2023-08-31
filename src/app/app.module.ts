@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    UserlistComponent
+    UserlistComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

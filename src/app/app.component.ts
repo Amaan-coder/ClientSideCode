@@ -14,11 +14,5 @@ export class AppComponent implements OnInit{
     
   }
   title = 'ClientSideCode';
-  login(){
-    this.route.navigate(['/login']);
-  }
-  logout(){
-    this.commService.setLoggedOut();
-    this.route.navigate(['/login']);
-  }
+  
 }
