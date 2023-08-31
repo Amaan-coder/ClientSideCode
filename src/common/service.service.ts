@@ -55,4 +55,17 @@ export class ServiceService {
     clearTimeout(this.alertTimer);
   }
 
+  isLoggedIn(): boolean {
+    return sessionStorage.getItem('login') === 'true';
+  }
+
+  setLoggedIn() {
+    sessionStorage.setItem('login', 'true');
+  }
+
+  setLoggedOut() {
+    sessionStorage.removeItem('login');
+  }
+
+
 }
