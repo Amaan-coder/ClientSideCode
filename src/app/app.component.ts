@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServiceService } from 'src/common/service.service';
 
 @Component({
@@ -8,9 +9,12 @@ import { ServiceService } from 'src/common/service.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(public commService: ServiceService){}
+  constructor(public commService: ServiceService,private route:Router){}
   ngOnInit(): void {
     
   }
   title = 'ClientSideCode';
+  login(){
+    this.route.navigate(['/login']);
+  }
 }
