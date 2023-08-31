@@ -1,13 +1,25 @@
 /* Add this CSS to your global styles or a component's styles */
-/* Example of styling the footer */
+/* Example of styling the footer similar to the header */
 .footer {
-    background-color: #343a40; /* Footer background color */
-    color: #fff; /* Text color */
-    padding: 1rem 0; /* Add padding for spacing */
-    text-align: center; /* Center-align text */
-  }
+  background: linear-gradient(45deg, #007bff, #dc3545); /* Replace colors with your desired gradient */
   
-  .footer p {
-    margin: 0; /* Remove default margin for the paragraph */
-  }
-  
+  font-family: 'Roboto', sans-serif;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #dc3545;
+}
