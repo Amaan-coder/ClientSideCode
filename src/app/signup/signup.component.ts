@@ -3,6 +3,7 @@ import { Signup } from './signup.model';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/common/service.service';
 import { SIGNUP } from 'src/auth';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,7 @@ import { SIGNUP } from 'src/auth';
 export class SignupComponent implements OnInit {
 
   user : Signup = new Signup();
-  constructor(private router:Router, private common : ServiceService) { }
+  constructor(private router:Router, private common : ServiceService,private toastr : ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -20,11 +21,11 @@ export class SignupComponent implements OnInit {
     
     this.common.httpPost(SIGNUP,this.user).subscribe({
       next : data=>{
-        this.common.showMessage(data.response,true);
+        this.toastr.success(data.response,"Signup Successfully");
         this.router.navigate(['login']);
       },
       error : error=>{
-        this.common.showMessage(error.error.message,false);
+        this.toastr.error(error.error.message,"Signup Failed");
       }
     }
     )
