@@ -55,17 +55,32 @@ export class ServiceService {
     clearTimeout(this.alertTimer);
   }
 
+  //generate 13 digits random number
+  getRandom13DigitNumber() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const maxDigits = 24;
+    let randomNum = '';
+    
+    for (let i = 0; i < maxDigits; i++) {
+      const randomIndex  = Math.floor(Math.random() * characters.length); // Generate a random digit between 0 and 9
+      randomNum += characters.charAt(randomIndex);
+    }
+  
+    return randomNum;
+  }
+
   isLoggedIn(): boolean {
     return sessionStorage.getItem('login') ? true:false;
   }
 
   setLoggedIn() {
-    sessionStorage.setItem('login', 'true');
+    const random13DigitNum = this.getRandom13DigitNumber();
+    sessionStorage.setItem('login', random13DigitNum);
   }
 
   setLoggedOut() {
     sessionStorage.removeItem('login');
   }
 
-
+  
 }
