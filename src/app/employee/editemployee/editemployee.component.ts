@@ -21,7 +21,7 @@ export class EditemployeeComponent implements OnInit {
     this.getEmployeeList(this.id);
   }
   onBack(){
-    this.router.navigate(['/employeeList']);
+    this.router.navigate(['/home/employeeList']);
   }
  getEmployeeList(id: any){
   this.common.httpGet(EMPLOYEE_DETAILS+id).subscribe((data)=>{
@@ -36,7 +36,7 @@ export class EditemployeeComponent implements OnInit {
  onSubmit(){
   this.common.httpPost(ADD_EMPLOYEE,this.employee).subscribe(data=>{
     alert("Data Edited Successfully");
-    this.router.navigate(['employeeList']);
+    this.router.navigate(['/home/employeeList']);
   })
 
 }

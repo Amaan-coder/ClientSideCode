@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { GuardGuard } from './config/guard.guard';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {
@@ -22,24 +23,33 @@ const routes: Routes = [
   },
   {
     path:'home',component:HomeComponent,
-    canActivate:[GuardGuard]
-  },
-  {
-    path:'employeeList',component:EmployeeComponent
-  },
-  
-  {
-    path:'addemployee',component:AddemployeeComponent
-  },
-  {
-    path:'editemployee/:id',component:EditemployeeComponent
-  },
-  {
-    path:'viewemployee/:id',component:ViewemployeeComponent
-  },
- 
-  {
-    path:'userlist',component:UserlistComponent
+    canActivate:[GuardGuard],
+    children:[
+      
+      {
+        path:'main',component:MainComponent
+      },
+      {
+        path:'',redirectTo:"main",pathMatch:"full"
+      },
+     
+      {
+        path:'employeeList',component:EmployeeComponent
+      },
+      
+      {
+        path:'addemployee',component:AddemployeeComponent
+      },
+      {
+        path:'editemployee/:id',component:EditemployeeComponent
+      },
+      {
+        path:'viewemployee/:id',component:ViewemployeeComponent
+      },
+     
+      {
+        path:'userlist',component:UserlistComponent
+      }]
   }
 ];
 

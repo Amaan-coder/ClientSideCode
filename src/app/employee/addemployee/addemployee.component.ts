@@ -20,14 +20,14 @@ export class AddemployeeComponent implements OnInit {
    
   }
   onBack(){
-    this.router.navigate(['../']);
+    this.router.navigate(['/home/employeeList']);
   }
 
  
   onSubmit(){
     this.common.httpPost(ADD_EMPLOYEE,this.employee).subscribe(data=>{
       alert("Data Added Successfully");
-      this.router.navigate(['employeeList']);
+      this.router.navigate(['/home/employeeList']);
     })
 
   }

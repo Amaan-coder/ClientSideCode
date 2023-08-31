@@ -21,7 +21,7 @@ export class ViewemployeeComponent implements OnInit {
     this.getEmployeeList(this.id);
   }
   onBack(){
-    this.router.navigate(['employeeList']);
+    this.router.navigate(['/home/employeeList']);
   }
   getEmployeeList(id: any){
     this.common.httpGet(EMPLOYEE_DETAILS+id).subscribe((data)=>{

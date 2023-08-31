@@ -24,13 +24,13 @@ export class EmployeeComponent implements OnInit {
   }
 
   addmore(){
-    this.route.navigate(['/addemployee']);
+    this.route.navigateByUrl('home/addemployee');
   }
   edit(id:Number){
-    this.route.navigate(['/editemployee/'+id])
+    this.route.navigate(['home/editemployee/'+id])
   }
   view(id:Number){
-    this.route.navigate(['/viewemployee/'+id])
+    this.route.navigate(['home/viewemployee/'+id])
   }
   getEmployeeList(){
    this.common.httpGet(EMPLOYEE_LIST).subscribe((data)=>{
