@@ -23,7 +23,7 @@
        </div>
        <div class="col-4 mt-3">
          <div class="text-center mx-4">
-           <button class="btn btn-primary rounded-pill float-right " (click)="addmore()"><span class="btn-text">Add new Employee</span></button>
+           <button class="btn btn-primary rounded-pill float-right " routerLink="/home/employeeList/addemployee"><span class="btn-text">Add new Employee</span></button>
          </div>
        </div>
      </div>
@@ -63,8 +63,9 @@
                  <td>{{employeeList.company}}</td>
                  <td>{{employeeList.phone}}</td>
                  <td>
-                   <button type="button" class="btn " id="edit" (click)="edit(employeeList.id)">Edit</button>
-                   <button type="button" class="btn mx-3" id="view" (click)="view(employeeList.id)">View</button>
+                  <button type="button" class="btn" id="edit" [routerLink]="['/home/employeeList/editemployee/'+ employeeList.id]">Edit</button>
+
+                   <button type="button" class="btn mx-3" id="view" [routerLink]="['/home/employeeList/viewemployee/'+ employeeList.id]">View</button>
                    <button type="button" class="btn  mx-2  " id="delete" (click)="onDelete(employeeList.id)">Delete</button>
                </td>
                </tr>

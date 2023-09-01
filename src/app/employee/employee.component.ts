@@ -23,15 +23,7 @@ export class EmployeeComponent implements OnInit {
     this.getEmployeeList();
   }
 
-  addmore(){
-    this.route.navigateByUrl('home/addemployee');
-  }
-  edit(id:Number){
-    this.route.navigate(['home/editemployee/'+id])
-  }
-  view(id:Number){
-    this.route.navigate(['home/viewemployee/'+id])
-  }
+  
   getEmployeeList(){
    this.common.httpGet(EMPLOYEE_LIST).subscribe((data)=>{
     if(data.errFlag){
@@ -45,7 +37,7 @@ export class EmployeeComponent implements OnInit {
   onDelete(id:Number){
     this.common.httpGet(DELETE_EMPLOYEE+id).subscribe((data)=>{
       if(data.errFlag){
-        alert("Deleted Unsucessfully");
+        confirm("Are you sure");
       }
       else{
        alert("Sucessfully Deleted");

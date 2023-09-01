@@ -34,19 +34,10 @@ const routes: Routes = [
       },
      
       {
-        path:'employeeList',component:EmployeeComponent
+        path:'employeeList',loadChildren:()=>import('./employee/employee.module').then(m=>m.EmployeeModule)
       },
       
-      {
-        path:'addemployee',component:AddemployeeComponent
-      },
-      {
-        path:'editemployee/:id',component:EditemployeeComponent
-      },
-      {
-        path:'viewemployee/:id',component:ViewemployeeComponent
-      },
-     
+      
       {
         path:'userlist',component:UserlistComponent
       }]
