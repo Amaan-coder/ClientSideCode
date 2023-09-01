@@ -39,4 +39,7 @@
     background-color: #c82333;
     border-color: #bd2130;
   }
-  
+  .navbar-nav .nav-link.active-link {
+    color: rgba(255, 255, 255, 1); /* Change the color for active links */
+    font-weight: bold; /* Optionally, you can make the active link bold */
+}
