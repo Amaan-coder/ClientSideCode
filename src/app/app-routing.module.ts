@@ -10,42 +10,55 @@ import { HomeComponent } from './home/home.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { GuardGuard } from './config/guard.guard';
 import { MainComponent } from './main/main.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-   path:'',redirectTo:"login",pathMatch:'full' 
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path:'login',component:LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'signup',component:SignupComponent
+    path: 'signup',
+    component: SignupComponent,
   },
   {
-    path:'home',component:HomeComponent,
-    canActivate:[GuardGuard],
-    children:[
-      
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [GuardGuard],
+    children: [
       {
-        path:'main',component:MainComponent
+        path: 'main',
+        component: MainComponent,
       },
       {
-        path:'',redirectTo:"main",pathMatch:"full"
+        path: '',
+        redirectTo: 'main',
+        pathMatch: 'full',
       },
-     
+
       {
-        path:'employeeList',loadChildren:()=>import('./employee/employee.module').then(m=>m.EmployeeModule)
+        path: 'employeeList',
+        loadChildren: () =>
+          import('./employee/employee.module').then((m) => m.EmployeeModule),
       },
-      
-      
       {
-        path:'userlist',component:UserlistComponent
-      }]
+        path: 'userlist',
+        component: UserlistComponent,
+      },
+    ],
+  },
+  {
+    path:'**',pathMatch:'full',component:PageNotFoundComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
