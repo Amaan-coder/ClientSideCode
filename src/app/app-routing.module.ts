@@ -27,17 +27,17 @@ const routes: Routes = [
     component: SignupComponent,
   },
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'main',
+    component: MainComponent,
     canActivate: [GuardGuard],
     children: [
       {
-        path: 'main',
-        component: MainComponent,
+        path: 'home',
+        component: HomeComponent,
       },
       {
         path: '',
-        redirectTo: 'main',
+        redirectTo: 'home',
         pathMatch: 'full',
       },
 

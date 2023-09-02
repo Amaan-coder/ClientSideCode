@@ -21,7 +21,7 @@ export class EditemployeeComponent implements OnInit {
     this.getEmployeeList(this.id);
   }
   onBack(){
-    this.router.navigate(['/home/employeeList']);
+    this.router.navigate(['/main/employeeList']);
   }
  getEmployeeList(id: any){
   this.common.httpGet(EMPLOYEE_DETAILS+id).subscribe((data)=>{

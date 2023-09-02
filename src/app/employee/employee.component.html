@@ -1,7 +1,7 @@
 <div class="container vh-100" >
   <nav aria-label="breadcrumb">
      <ol class="breadcrumb">
-       <li class="breadcrumb-item"> <a routerLink="/home"><i class="bi bi-house-door-fill home "
+       <li class="breadcrumb-item"> <a routerLink="/main"><i class="bi bi-house-door-fill home "
              style="color: #6200EE;"></i></a></li>
        <span class="dot_icon"></span>
        
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-4 col-sm-6 mt-3">
             <div class="text-center">
-                <button class="btn btn-primary rounded-pill" routerLink="/home/employeeList/addemployee">
+                <button class="btn btn-primary rounded-pill" routerLink="/main/employeeList/addemployee">
                     <span class="btn-text">Add new Employee</span>
                 </button>
             </div>
@@ -66,9 +66,9 @@
                  <td>{{employeeList.company}}</td>
                  <td>{{employeeList.phone}}</td>
                  <td>
-                  <button type="button" class="btn" id="edit" [routerLink]="['/home/employeeList/editemployee/'+ employeeList.id]">Edit</button>
+                  <button type="button" class="btn" id="edit" [routerLink]="['/main/employeeList/editemployee/'+ employeeList.id]">Edit</button>
 
-                   <button type="button" class="btn " id="view" [routerLink]="['/home/employeeList/viewemployee/'+ employeeList.id]">View</button>
+                   <button type="button" class="btn " id="view" [routerLink]="['/main/employeeList/viewemployee/'+ employeeList.id]">View</button>
                    <button type="button" class="btn btn-primary" id="delete" (click)="onDelete(employeeList.id)">Delete</button>
                </td>
                </tr>

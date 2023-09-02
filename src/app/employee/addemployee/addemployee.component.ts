@@ -20,7 +20,7 @@ export class AddemployeeComponent implements OnInit {
    
   }
   onBack(){
-    this.router.navigate(['/home/employeeList']);
+    this.router.navigate(['/main/employeeList']);
   }
 
  
