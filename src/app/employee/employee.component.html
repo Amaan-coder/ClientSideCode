@@ -10,27 +10,27 @@
    </nav>
  
    <div class="container-fluid" id="container1">
-     <div class="row">
-       <div class="col-8">
-         <div class="well span2 text-wrap mt-4">
-           <h1 class="heading mx-3">Add new Employee</h1>
-         </div>
-         <div class="col mb-4 mt-4">
-           <span class="text text-wrap mt-3 mb-4 mx-3">
-             Add new Employee by giving Information
-           </span>
-         </div>
-       </div>
-       <div class="col-md-4 col-sm-6 col-xs-12 mt-3">
-        <div class="text-center ">
-          <button class="btn btn-primary rounded-pill" routerLink="/home/employeeList/addemployee">
-            <span class="btn-text">Add new Employee</span>
-          </button>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well span2 text-wrap mt-4">
+                <h1 class="heading mx-3">Add new Employee</h1>
+            </div>
+            <div class="col mb-4 mt-4">
+                <span class="text text-wrap mt-3 mb-4 mx-3">
+                    Add new Employee by giving Information
+                </span>
+            </div>
         </div>
-      </div>
-      
-     </div>
-   </div>
+        <div class="col-md-4 col-sm-6 mt-3">
+            <div class="text-center">
+                <button class="btn btn-primary rounded-pill" routerLink="/home/employeeList/addemployee">
+                    <span class="btn-text">Add new Employee</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
  
  
  
@@ -68,8 +68,8 @@
                  <td>
                   <button type="button" class="btn" id="edit" [routerLink]="['/home/employeeList/editemployee/'+ employeeList.id]">Edit</button>
 
-                   <button type="button" class="btn mx-3" id="view" [routerLink]="['/home/employeeList/viewemployee/'+ employeeList.id]">View</button>
-                   <button type="button" class="btn  mx-2  " id="delete" (click)="onDelete(employeeList.id)">Delete</button>
+                   <button type="button" class="btn " id="view" [routerLink]="['/home/employeeList/viewemployee/'+ employeeList.id]">View</button>
+                   <button type="button" class="btn btn-primary" id="delete" (click)="onDelete(employeeList.id)">Delete</button>
                </td>
                </tr>
               
