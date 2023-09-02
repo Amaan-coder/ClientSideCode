@@ -26,35 +26,23 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
-  {
-    path: 'main',
-    component: MainComponent,
-    canActivate: [GuardGuard],
-    children: [
-      {
-        path: 'home',
-        component: HomeComponent,
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-      },
 
-      {
-        path: 'employeeList',
-        loadChildren: () =>
-          import('./employee/employee.module').then((m) => m.EmployeeModule),
-      },
-      {
-        path: 'userlist',
-        component: UserlistComponent,
-      },
+  { path: 'main',component: MainComponent,canActivate: [GuardGuard],
+    children: [
+      { path: 'home',component: HomeComponent, },
+
+      { path: '',redirectTo: 'home',pathMatch: 'full', },
+
+      { path: 'employeeList',loadChildren: () =>import('./employee/employee.module').then((m) => m.EmployeeModule) },
+
+       { path: 'userlist',component: UserlistComponent,canActivateChild:[GuardGuard],canActivate: [GuardGuard] }, //admin + client
     ],
   },
   {
-    path:'**',pathMatch:'full',component:PageNotFoundComponent
-  }
+    path: '**',
+    pathMatch: 'full',
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({

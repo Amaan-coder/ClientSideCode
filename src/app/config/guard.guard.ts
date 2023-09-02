@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree,CanActivateChild } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { ServiceService } from 'src/common/service.service';
@@ -7,7 +7,7 @@ import { ServiceService } from 'src/common/service.service';
 @Injectable({
   providedIn: 'root'
 })
-export class GuardGuard implements CanActivate {
+export class GuardGuard implements CanActivate, CanActivateChild {
 
   constructor(  private common: ServiceService,
     private router: Router,
@@ -17,13 +17,22 @@ export class GuardGuard implements CanActivate {
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
     if (this.common.isLoggedIn()) {
       return true;
     } else {
       this.toastr.warning('Please log in first.', 'Access Denied'); // Show warning message
       return this.router.createUrlTree(['/login']); // Redirect to login page using UrlTree
     }
+
   }
+
+  canActivateChild(
+    childRoute: ActivatedRouteSnapshot, 
+    state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+
+      return true;
+  }
+  
 }

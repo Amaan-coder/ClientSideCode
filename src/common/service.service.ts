@@ -15,7 +15,8 @@ export class ServiceService {
   showMsg : boolean=false;
   message: String | undefined ;
   alertTimer:any=null;
-
+  private userRoles: any;
+  adminRole: boolean = false;
 
 
   constructor(private http: HttpClient) { }
@@ -82,5 +83,17 @@ export class ServiceService {
     sessionStorage.removeItem('login');
   }
 
+  setRoles(role:any){
+    this.userRoles = role;
+  }
   
+  getRoles(){
+    if (this.userRoles == 'admin') {
+      this.adminRole = true;
+    }
+    if (this.userRoles == 'user') {
+      this.adminRole = false;
+    }
+    return this.adminRole;
+  }
 }
