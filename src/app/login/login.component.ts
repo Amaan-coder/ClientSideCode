@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         // }
         this.toastr.success(data.response.role[0].roleDes,"Login Sucessfully");
         this.common.setLoggedIn();
-        this.route.navigate(['home']);
+        this.route.navigate(['main']);
          },
       error: error => {
        this.toastr.error(error.error.message,"Login Failed",);
