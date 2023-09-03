@@ -1,38 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResponseDto } from './common-model';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  public httpGet(url:any):Observable<ResponseDto>{
+  public httpGet(url: any): Observable<ResponseDto> {
     return this.http.get<ResponseDto>(url);
   }
 
-  public httpPost(url:any, reqData:any):Observable<ResponseDto>{
-    return this.http.post<ResponseDto>(url,reqData);
+  public httpPost(url: any, reqData: any): Observable<ResponseDto> {
+    return this.http.post<ResponseDto>(url, reqData);
   }
 
-//generate 13 digits random number for key's value
   getRandom13DigitNumber() {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()/';
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()/';
     const maxDigits = 35;
     let randomNum = '';
     for (let i = 0; i < maxDigits; i++) {
-      const randomIndex  = Math.floor(Math.random() * characters.length);
+      const randomIndex = Math.floor(Math.random() * characters.length);
       randomNum += characters.charAt(randomIndex);
     }
     return randomNum;
   }
 
   isLoggedIn(): boolean {
-    return sessionStorage.getItem('login') ? true:false;
+    return sessionStorage.getItem('login') ? true : false;
   }
 
   setLoggedIn() {
@@ -43,5 +41,4 @@ export class ServiceService {
   setLoggedOut() {
     sessionStorage.removeItem('login');
   }
-  
 }
