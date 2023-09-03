@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(public commService: ServiceService, private route: Router) {}
 
   ngOnInit(): void {
-    this.getRoles();
+    
   }
   login() {
     this.route.navigate(['/login']);
@@ -21,15 +21,5 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.commService.setLoggedOut();
     this.route.navigate(['/login']);
-  }
-
-  getRoles() {
-    this.roles = this.commService.getRoles();
-    if (this.roles == 'admin') {
-      this.adminRole = true;
-    }
-    if (this.roles == 'user') {
-      this.adminRole = false;
-    }
   }
 }
