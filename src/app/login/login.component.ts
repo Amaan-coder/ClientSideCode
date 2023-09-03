@@ -31,16 +31,11 @@ export class LoginComponent implements OnInit {
       next: (data) => {
         this.toastr.success(data.response.role[0].roleDes, 'Login Sucessfully');
         this.common.setLoggedIn(); //For login
-
-        const role = data.response.role[0].role;
-        this.common.setRoles(role); //  For getting roles
         this.route.navigate(['main']);
       },
       error: (error) => {
         this.toastr.error(error.error.message, 'Login Failed');
-        // if (error instanceof HttpErrorResponse) {
-
-        // }
+        // if (error instanceof HttpErrorResponse) { }
       },
     } as Observer<ResponseDto>);
   }
