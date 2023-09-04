@@ -7,3 +7,4 @@ export const DELETE_EMPLOYEE = environment.domain + "/employee/delemployee/"
 export const SIGNUP = environment.domain + "/user/signup";
 export const LOGIN = environment.domain + "/user/login";
 export const USER_LIST = environment.domain + "/user/userlist";
+export const USER_ROLE = environment.domain + "/user/userrole/";

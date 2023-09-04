@@ -18,7 +18,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   user: Signup = new Signup();
-  msg: string='';
+  msg: string = '';
+  role: any;
+
   constructor(private route : Router, private common: ServiceService,private toastr : ToastrService) { }
 
   ngOnInit(): void {}
@@ -31,6 +33,9 @@ export class LoginComponent implements OnInit {
       next: (data) => {
         this.toastr.success(data.response.role[0].roleDes, 'Login Sucessfully');
         this.common.setLoggedIn(); //For login
+
+        this.role = data.response.role[0].role;
+        this.common.setRole(this.role);
         this.route.navigate(['main']);
       },
       error: (error) => {

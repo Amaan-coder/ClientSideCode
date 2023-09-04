@@ -7,6 +7,7 @@ import { ResponseDto } from './common-model';
   providedIn: 'root',
 })
 export class ServiceService {
+  roles: any;
   constructor(private http: HttpClient) {}
 
   public httpGet(url: any): Observable<ResponseDto> {
@@ -40,5 +41,12 @@ export class ServiceService {
 
   setLoggedOut() {
     sessionStorage.removeItem('login');
+  }
+
+  setRole(role:any){
+    sessionStorage.setItem('role', role);
+  }
+  getRole(){
+    return sessionStorage.getItem('role');
   }
 }
