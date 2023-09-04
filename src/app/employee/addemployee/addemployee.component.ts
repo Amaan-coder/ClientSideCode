@@ -5,7 +5,7 @@ import { ServiceService } from 'src/common/service.service';
 import { EmployeeComponent } from '../employee.component';
 import { ADD_EMPLOYEE } from 'src/auth';
 import { ToastrService } from 'ngx-toastr';
-import { AbstractControl, FormControl, Validators } from '@angular/forms';
+import { AbstractControl, Form, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-addemployee',
@@ -19,18 +19,21 @@ export class AddemployeeComponent implements OnInit {
   id: any;
   employee: Employee = new Employee();
 
-  firstName = new FormControl('', Validators.required);
-  lastName = new FormControl('', Validators.required);
+  firstName = new FormControl('', [Validators.required, this.alphabetValidator]);
+  lastName = new FormControl('', [Validators.required, this.alphabetValidator]);
+
   add1 = new FormControl("", Validators.required);
   add2 = new FormControl("", Validators.required);
-  city = new FormControl("", Validators.required);
-  state = new FormControl("", Validators.required);
-  phone = new FormControl("", [Validators.required, this.numericValidator]);
+  city = new FormControl('', [Validators.required, this.alphabetValidator]);
+  state = new FormControl('', [Validators.required, this.alphabetValidator]);
+
+  phone = new FormControl(null, [Validators.required, this.numericValidator]);
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
   pin = new FormControl("", [Validators.required, this.numericValidator]);
-  company = new FormControl("", Validators.required);
+  company = new FormControl('', [Validators.required, this.alphabetValidator]);
+
 
 
   ngOnInit(): void {
@@ -49,7 +52,8 @@ export class AddemployeeComponent implements OnInit {
         this.router.navigate(['/main/employeeList']);
       })
     }
-    else{
+    else {
+      this.toastr.warning("Please fill the mandatory fields or Invalid Fields");
       this.firstName.markAsTouched();
       this.firstName.markAsDirty();
       this.lastName.markAsDirty();
@@ -70,23 +74,35 @@ export class AddemployeeComponent implements OnInit {
       this.company.markAsTouched();
       this.email.markAsDirty();
       this.email.markAsTouched();
-      
-      this.toastr.warning("Please Fill the mandatory Fields");
-    }
+}
+}
 
-
-
-  }
-
-     numericValidator(control: AbstractControl): { [key: string]: any } | null {
+  numericValidator(control: AbstractControl): { [key: string]: any } | null {
     const valid = /^\d+$/.test(control.value);
     return valid ? null : { nonNumeric: true };
   }
-  numberChange(event:Event){
+  numberChange(event: Event) {
     const i = event.target as HTMLInputElement;
-    let num= i.value;
-    num = num.replace(/\D/g,'');
-    num = num.slice(0 ,10);
+    let num = i.value;
+    num = num.replace(/\D/g, '');
+    num = num.slice(0, 10);
     i.value = num;
   }
+
+  forAlphabetOnly(name: string): boolean {
+    const pattern = /^[a-zA-Z\s]*$/;
+    return pattern.test(name);
+  }
+
+  alphabetValidator(control: FormControl): { [key: string]: any } | null {
+    const alphabeticCharacters = /^[a-zA-Z\s]*$/; // Allow alphabetic characters and spaces
+    if (control.value && !alphabeticCharacters.test(control.value)) {
+      return { invalidAlphabet: true };
+    }
+    return null;
+  }
+
+
+
+
 }

@@ -33,30 +33,56 @@
             </div>
           </div>
 
+<!-- First Name -->
+<div class="col-md-4 mt-4 mb-3">
+  <div class="form-outline ILP-Center">
+    <label for="firstName" class="form-label mx-3">First Name</label>
+    <input
+      type="text"
+      id="firstName"
+      class="form-control inputField mx-3"
+      style="width: 90%;"
+      placeholder="Enter Your First Name"
+      [(ngModel)]="employee.firstName"
+      [formControl]="firstName"
+      maxlength="15"
+    />
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="firstName.hasError('required') && (firstName.dirty || firstName.touched)">
+    First name is required
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="firstName.hasError('invalidAlphabet') && (firstName.dirty || firstName.touched)">
+    Only alphabetic characters and spaces are allowed
+  </div>
+</div>
 
-          <div class="col-md-4 mt-4 mb-3">
-            <div class="form-outline ILP-Center">
-              <label for="" class="form-label mx-3">First Name</label>
-              <input type="text" class="form-control inputField mx-3" style="width: 90%;" placeholder="Enter Your Name" [(ngModel)]="employee.firstName" [formControl]="firstName">
-            </div>
-            <div class="form-text mx-3 text-danger" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
-              Must be Filled
-            </div>
-          </div>
-          <div class="col-md-4 mt-4 mb-3">
-            <div class="form-outline ILP-Center">
-              <label for="" class="form-label mx-3">Last Name</label>
-              <input type="text" class="form-control inputField mx-3"style="width: 90%;" placeholder="Enter Your Name" [(ngModel)]="employee.lastName" [formControl]="lastName"> 
-            </div>
-            <div class="form-text mx-3 text-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-              Must be Filled
-            </div>
-          </div>
+<!-- Last Name -->
+<div class="col-md-4 mt-4 mb-3">
+  <div class="form-outline ILP-Center">
+    <label for="lastName" class="form-label mx-3">Last Name</label>
+    <input
+      type="text"
+      id="lastName"
+      class="form-control inputField mx-3"
+      style="width: 90%;"
+      placeholder="Enter Your Last Name"
+      [(ngModel)]="employee.lastName"
+      [formControl]="lastName" maxlength="15"
+    />
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="lastName.hasError('required') && (lastName.dirty || lastName.touched)">
+    Last name is required
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="lastName.hasError('invalidAlphabet') && (lastName.dirty || lastName.touched)">
+    Only alphabetic characters and spaces are allowed
+  </div>
+</div>
+
 
           <div class="col-12 mb-3">
             <div class="form-outline ILP-Center">
               <label for="" class="form-label mx-3">Address Line 1</label>
-              <input type="text" class="form-control inputField mx-3"style="width: 63%;" placeholder="Enter Your Name" [(ngModel)]="employee.addressLine1" [formControl]="add1">
+              <input type="text" class="form-control inputField mx-3"style="width: 63%;" placeholder="Enter Your Name" [(ngModel)]="employee.addressLine1" [formControl]="add1"  maxlength="25">
             </div>
             <div class="form-text mx-3 text-danger" *ngIf="add1.invalid && (add1.dirty || add1.touched)">
               Must be Filled
@@ -65,7 +91,7 @@
           <div class="col-12 mb-3">
             <div class="form-outline ILP-Center">
               <label for="" class="form-label mx-3">Address Line 2</label>
-              <input type="text" class="form-control inputField mx-3"style="width: 63%;" placeholder="Enter Your Name"[(ngModel)]="employee.addressLine2" [formControl]="add2">
+              <input type="text" class="form-control inputField mx-3"style="width: 63%;" placeholder="Enter Your Name"[(ngModel)]="employee.addressLine2" [formControl]="add2"  maxlength="25">
             </div>
             <div class="form-text mx-3 text-danger" *ngIf="add2.invalid && (add2.dirty || add2.touched)">
               Must be Filled
@@ -75,24 +101,52 @@
 
 
         <div class="row">
-          <div class="col-md-4 ">
-            <div class="form-outline ILP-Center">
-              <label for="" class="form-label mx-3">City</label>
-              <input type="text" class="form-control inputField mx-3" style="width: 90%;" placeholder="Enter Your City" [(ngModel)]="employee.city" [formControl]="city">
-            </div>
-            <div class="form-text mx-3 text-danger" *ngIf="city.invalid && (city.dirty || city.touched)">
-              Must be Filled
-            </div>
-          </div>
-          <div class="col-md-4  ">
-            <div class="form-outline ILP-Center">
-              <label for="" class="form-label mx-3">State</label>
-              <input type="text" class="form-control inputField mx-3"style="width: 90%;" placeholder="Enter Your State" [(ngModel)]="employee.state" [formControl]="state">
-            </div>
-            <div class="form-text mx-3 text-danger" *ngIf="state.invalid && (state.dirty || state.touched)">
-              Must be Filled
-            </div>
-          </div>
+         <!-- City -->
+<div class="col-md-4">
+  <div class="form-outline ILP-Center">
+    <label for="city" class="form-label mx-3">City</label>
+    <input
+      type="text"
+      id="city"
+      class="form-control inputField mx-3"
+      style="width: 90%;"
+      placeholder="Enter Your City"
+      [(ngModel)]="employee.city"
+      [formControl]="city"
+      maxlength="15"
+    />
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="city.hasError('required') && (city.dirty || city.touched)">
+    City is required
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="city.hasError('invalidAlphabet') && (city.dirty || city.touched)">
+    Only alphabetic characters and spaces are allowed
+  </div>
+</div>
+
+<!-- State -->
+<div class="col-md-4">
+  <div class="form-outline ILP-Center">
+    <label for="state" class="form-label mx-3">State</label>
+    <input
+      type="text"
+      id="state"
+      class="form-control inputField mx-3"
+      style="width: 90%;"
+      placeholder="Enter Your State"
+      [(ngModel)]="employee.state"
+      [formControl]="state" 
+      maxlength="24"
+    />
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="state.hasError('required') && (state.dirty || state.touched)">
+    State is required
+  </div>
+  <div class="form-text mx-3 text-danger" *ngIf="state.hasError('invalidAlphabet') && (state.dirty || state.touched)">
+    Only alphabetic characters and spaces are allowed
+  </div>
+</div>
+
         </div>
 
         <div class="row">
@@ -129,7 +183,7 @@
                 placeholder="Enter Your Email"
                 [(ngModel)]="employee.email"
                 [formControl]="email"
-               
+                maxlength="28"
               />
             </div>
             <div class="form-text mx-3 text-danger" *ngIf="email.hasError('required') && (email.dirty || email.touched)">
@@ -147,7 +201,7 @@
               <label for="" class="form-label mx-3">Postal Code</label>
               <input type="text" class="form-control inputField mx-3" style="width: 90%;" placeholder="Enter Your Postal Code" [(ngModel)]="employee.postalCode" maxlength="6" [formControl]="pin"  (input)="numberChange($event)">
             </div>
-            <div class="form-text mx-3 text-danger" *ngIf="pin.invalid && (pin.dirty || pin.touched)">
+            <div class="form-text mx-3 text-danger" *ngIf="pin.hasError('required') && (pin.dirty || pin.touched)">
               Must be Filled
             </div>
             <div class="form-text mx-3 text-danger" *ngIf="pin.hasError('nonNumeric') && (pin.dirty || pin.touched)">
@@ -157,11 +211,22 @@
 
           <div class="col-md-4 mt-4 mb-3">
             <div class="form-outline ILP-Center">
-              <label for="" class="form-label mx-3">Company</label>
-              <input type="text" class="form-control inputField mx-3"style="width: 90%;" placeholder="Enter Your Company" [(ngModel)]="employee.company" [formControl]="company">
+              <label for="company" class="form-label mx-3">Company</label>
+              <input
+                type="text"
+                id="company"
+                class="form-control inputField mx-3"
+                style="width: 90%;"
+                placeholder="Enter Your Company"
+                [(ngModel)]="employee.company"
+                [formControl]="company" maxlength="50"
+              />
             </div>
-            <div class="form-text mx-3 text-danger" *ngIf="company.invalid && (company.dirty || company.touched)">
-              Must be Filled
+            <div class="form-text mx-3 text-danger" *ngIf="company.hasError('required') && (company.dirty || company.touched)">
+              Company name is required
+            </div>
+            <div class="form-text mx-3 text-danger" *ngIf="company.hasError('invalidAlphabet') && (company.dirty || company.touched)">
+              Invalid input. Special characters are not allowed
             </div>
           </div>
 
