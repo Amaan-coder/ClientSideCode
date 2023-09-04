@@ -14,7 +14,7 @@
           <a class="nav-link" routerLink="/main/employeeList" routerLinkActive="active-link">Employee List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/main/userlist" routerLinkActive="active-link">User List</a>
+          <a class="nav-link" routerLink="/main/userlist" *ngIf="commService.hasAdmin()" routerLinkActive="active-link">User List</a>
         </li>
       </ul>
       <!-- logout button -->
