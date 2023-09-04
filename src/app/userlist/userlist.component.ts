@@ -19,7 +19,7 @@ export class UserlistComponent implements OnInit {
   getUserList(){
    
     this.common.httpGet(USER_LIST).subscribe((data)=>{
-      console.log("UserList",this.userList);
+    
       this.userList = data.response;
       this.roleList = data.response.role;
     })

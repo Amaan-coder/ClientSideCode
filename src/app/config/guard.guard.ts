@@ -31,12 +31,12 @@ export class GuardGuard implements CanActivate, CanActivateChild {
   canActivateChild(
     childRoute: ActivatedRouteSnapshot, 
     state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-
+     console.log("Can Activate child",this.common.hasAdmin());
       if (this.common.hasAdmin()) {
         return true;
       } else {
         this.toastr.warning('Only addmin can login.', 'Access Denied'); // Show warning message
-        return this.router.createUrlTree([]); // Redirect to login page using UrlTree
+        return this.router.createUrlTree(['/main']); // Redirect to login page using UrlTree
       }
   }
   
