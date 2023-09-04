@@ -7,7 +7,7 @@ import { ResponseDto } from './common-model';
   providedIn: 'root',
 })
 export class ServiceService {
-  roles: any;
+  roles: any='admin';
   constructor(private http: HttpClient) {}
 
   public httpGet(url: any): Observable<ResponseDto> {
@@ -49,6 +49,9 @@ export class ServiceService {
   getRole(){
     console.log("Hello",sessionStorage.getItem('role'))
     return sessionStorage.getItem('role');
+  }
+  removeRole(){
+    sessionStorage.removeItem('role');
   }
 
   hasAdmin():boolean{

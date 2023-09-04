@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   }
   logout() {
     this.commService.setLoggedOut();
+    this.commService.removeRole();
     this.route.navigate(['/login']);
   }
 }
