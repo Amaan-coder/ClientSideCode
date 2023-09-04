@@ -47,6 +47,17 @@ export class ServiceService {
     sessionStorage.setItem('role', role);
   }
   getRole(){
+    console.log("Hello",sessionStorage.getItem('role'))
     return sessionStorage.getItem('role');
+  }
+
+  hasAdmin():boolean{
+    if(this.getRole()=='admin'){
+      return true;
+    }
+    if(this.getRole()=='user'){
+      return false
+    }
+    return true;
   }
 }

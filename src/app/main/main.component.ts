@@ -11,6 +11,14 @@ export class MainComponent implements OnInit {
   constructor(private common:ServiceService) { }
 
   ngOnInit(): void {
+    // if(this.common.getRole()=='admin'){
+
+    //   console.log("Hello admin");
+    // }
+    // if(this.common.getRole()=='user'){
+    //   console.log("Hello user");
+    // }
+    console.log("Hello--->",this.common.hasAdmin());
   }
 
 }
