@@ -69,7 +69,7 @@
                   <button type="button" class="btn" id="edit" [routerLink]="['/main/employeeList/editemployee/'+ employeeList.id]">Edit</button>
 
                    <button type="button" class="btn " id="view" [routerLink]="['/main/employeeList/viewemployee/'+ employeeList.id]">View</button>
-                   <button type="button" class="btn btn-primary" id="delete" (click)="onDelete(employeeList.id)">Delete</button>
+                   <button type="button" class="btn btn-primary" id="delete" *ngIf="common.hasAdmin()"  (click)="onDelete(employeeList.id)">Delete</button>
                </td>
                </tr>
               

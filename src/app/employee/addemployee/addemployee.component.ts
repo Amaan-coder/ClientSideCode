@@ -4,6 +4,7 @@ import { Employee } from '../employee.model';
 import { ServiceService } from 'src/common/service.service';
 import { EmployeeComponent } from '../employee.component';
 import { ADD_EMPLOYEE } from 'src/auth';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addemployee',
@@ -12,7 +13,7 @@ import { ADD_EMPLOYEE } from 'src/auth';
 })
 export class AddemployeeComponent implements OnInit {
 
-  constructor(private router:Router, private common:ServiceService) { }
+  constructor(private router:Router, private common:ServiceService,private toastr:ToastrService) { }
   employeeList: any;
   id:any;
   employee: Employee = new Employee();
@@ -26,8 +27,8 @@ export class AddemployeeComponent implements OnInit {
  
   onSubmit(){
     this.common.httpPost(ADD_EMPLOYEE,this.employee).subscribe(data=>{
-      alert("Data Added Successfully");
-      this.router.navigate(['/home/employeeList']);
+      this.toastr.success("Data Added Successfully");
+      this.router.navigate(['/main/employeeList']);
     })
 
   }

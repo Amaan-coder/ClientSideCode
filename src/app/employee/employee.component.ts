@@ -17,7 +17,7 @@ export class EmployeeComponent implements OnInit {
   employeeList: any;
   employee:Employee=new Employee();
 
-  constructor(private route:Router,private common:ServiceService) { }
+  constructor(private route:Router,public common:ServiceService) { }
 
   ngOnInit(): void {
     this.getEmployeeList();
