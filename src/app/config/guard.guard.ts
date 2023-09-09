@@ -35,7 +35,7 @@ export class GuardGuard implements CanActivate, CanActivateChild {
       if (this.common.hasAdmin()) {
         return true;
       } else {
-        this.toastr.warning('Only addmin can login.', 'Access Denied'); // Show warning message
+        this.toastr.warning('Only admin can login.', 'Access Denied'); // Show warning message
         return this.router.createUrlTree(['/main']); // Redirect to login page using UrlTree
       }
   }

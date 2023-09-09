@@ -10,6 +10,7 @@ import { Observer } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,9 @@ export class LoginComponent implements OnInit {
   msg: string = '';
   role: any;
 
+  email= new FormControl("",[Validators.required,Validators.email])
+  password = new FormControl("",Validators.required);
+
   constructor(private route : Router, private common: ServiceService,private toastr : ToastrService) { }
 
   ngOnInit(): void {}
@@ -29,19 +33,29 @@ export class LoginComponent implements OnInit {
     this.toastr.success('Hello Wordl ', 'for fun');
   }
   onSubmit() {
-    this.common.httpPost(LOGIN, this.user).subscribe({
-      next: (data) => {
-        this.toastr.success(data.response.role[0].roleDes, 'Login Sucessfully');
-        this.common.setLoggedIn(); //For login
-
-        this.role = data.response.role[0].role;
-        this.common.setRole(this.role);
-        this.route.navigate(['main']);
-      },
-      error: (error) => {
-        this.toastr.error(error.error.message, 'Login Failed');
-        // if (error instanceof HttpErrorResponse) { }
-      },
-    } as Observer<ResponseDto>);
+    if(this.email.valid && this.password.valid){
+      this.common.httpPost(LOGIN, this.user).subscribe({
+        next: (data) => {
+          this.toastr.success(data.response.role[0].roleDes, 'Login Sucessfully');
+          this.common.setLoggedIn(); //For login
+  
+          this.role = data.response.role[0].role;
+          this.common.setRole(this.role);
+          this.route.navigate(['main']);
+        },
+        error: (error) => {
+          this.toastr.error(error.error.message, 'Login Failed');
+          // if (error instanceof HttpErrorResponse) { }
+        },
+      } as Observer<ResponseDto>);
+    }
+    else{
+      this.email.markAsDirty();
+      this.email.markAsTouched();
+      this.password.markAsDirty();
+      this.password.markAsTouched();
+      this.toastr.warning("Fields must be filled","Warning");
+    }
+    
   }
 }
