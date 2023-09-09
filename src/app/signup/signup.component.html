@@ -11,28 +11,43 @@
             <div class="form-outline mb-2">
               <label class="form-label" >Full Name</label>
               <input type="email" id="signupEmail" class="form-control form-control-lg"
-                placeholder="Enter your Full Name"[(ngModel)]="user.fullName" [ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;"/>
+                placeholder="Enter your Full Name"[(ngModel)]="user.fullName"  style=" font: normal normal normal 16px Verdana;"[formControl]="name">
+            </div>
+            <div class="form-text mx-3 text-danger" *ngIf="name.hasError('invalidAlphabet') && (name.dirty || name.touched)">
+              Only alphabetic characters and spaces are allowed
+            </div>
+            <div class="form-text mx-3 text-danger" *ngIf="name.hasError('required') && (name.dirty || name.touched)">
+              Only alphabetic characters and spaces are allowed
             </div>
             <div class="form-outline mb-2">
               <label class="form-label" for="signupEmail">Email address</label>
               <input type="email" id="signupEmail" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" [(ngModel)]="user.email"[ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;"/>
+                placeholder="Enter a valid email address" [(ngModel)]="user.email" style=" font: normal normal normal 16px Verdana;" [formControl]="email">
             </div>
-  
+            <div class="form-text text-danger" *ngIf="email.hasError('email') && (email.touched || email.dirty)">
+              Invalid Email         
+            </div>
+            <div class="text-danger form-text" *ngIf="email.hasError('required') && (email.touched || email.dirty)">
+              Field must be filled
+            </div>
             <!-- Password input -->
             <div class="form-outline mb-2">
               <label class="form-label" for="signupPassword">Password</label>
               <input type="password" id="signupPassword" class="form-control form-control-lg"
-                placeholder="Enter password"[(ngModel)]="user.password" [ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;">
+                placeholder="Enter password"[(ngModel)]="user.password"   style=" font: normal normal normal 16px Verdana;" [formControl]="password">
             </div>
-  
+            <div class="text-danger form-text" *ngIf="password.hasError('required') && (password.touched || password.dirty)">
+              Filed must be filled
+            </div>
             <!-- Confirm Password input -->
             <div class="form-outline mb-2">
               <label class="form-label" for="confirmPassword">Confirm Password</label>
               <input type="password" id="confirmPassword" class="form-control form-control-lg"
-                placeholder="Confirm password"[(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}"style=" font: normal normal normal 16px Verdana;"/>
+                placeholder="Confirm password"[(ngModel)]="user.confirmPassword"  style=" font: normal normal normal 16px Verdana;"[formControl]="confirm">
+            </div>  
+            <div class="text-danger form-text" *ngIf="confirm.hasError('required') && (confirm.touched || confirm.dirty)">
+              Filed must be filled
             </div>
-  
             <!-- Signup button -->
             <div class="text-center text-lg-start mt-4 pt-2">
               <button type="button" class="btn btn-primary btn-lg"
