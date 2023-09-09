@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   email= new FormControl("",[Validators.required,Validators.email])
   password = new FormControl("",Validators.required);
+  name: any;
 
   constructor(private route : Router, private common: ServiceService,private toastr : ToastrService) { }
 
@@ -38,13 +39,14 @@ export class LoginComponent implements OnInit {
         next: (data) => {
           this.toastr.success(data.response.role[0].roleDes, 'Login Sucessfully');
           this.common.setLoggedIn(); //For login
-  
+          this.name = data.response.fullName;
           this.role = data.response.role[0].role;
           this.common.setRole(this.role);
+          this.common.setName(this.name);
           this.route.navigate(['main']);
         },
         error: (error) => {
-          this.toastr.error(error.error.message, 'Login Failed');
+          this.toastr.error(error.error.message, 'Something went wrong');
           // if (error instanceof HttpErrorResponse) { }
         },
       } as Observer<ResponseDto>);

@@ -11,16 +11,17 @@ export class HeaderComponent implements OnInit {
   roles: any;
   adminRole: boolean = false;
   constructor(public commService: ServiceService, private route: Router) {}
+  
 
   ngOnInit(): void {
     
   }
-  login() {
-    this.route.navigate(['/login']);
-  }
+  
+
   logout() {
     this.commService.setLoggedOut();
     this.commService.removeRole();
+    this.commService.removeName();
     this.route.navigate(['/login']);
   }
 }

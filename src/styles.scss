@@ -299,3 +299,24 @@ input.ng-invalid.ng-dirty{
       width: 25em;
     }
   }
+  .dropdown-item:hover, .dropdown-item:focus {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color:    #d1cbcbb8;
+  }
+  .dropdown-item.active, .dropdown-item:active {
+    // color: var(--bs-dropdown-link-active-color);
+    text-decoration: none;
+    background-color:    #f1dfdf;
+  }
+  .dropdown-item.disabled, .dropdown-item:disabled {
+    // color: var(--bs-dropdown-link-disabled-color);
+    pointer-events: none;
+    background-color: transparent;
+  }
+  .dropdown-item-text {
+    display: inline-block;
+    font-size: small;
+    font-weight: 400;
+    // padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+    // color: var(--bs-dropdown-link-color);
+  }

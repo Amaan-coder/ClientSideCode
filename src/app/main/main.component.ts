@@ -7,11 +7,15 @@ import { ServiceService } from 'src/common/service.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
+  name:any;
   constructor(private common:ServiceService) { }
 
   ngOnInit(): void {
-   
+    this.getName();
   }
-
+  getName(){
+   
+    this.name = this.common.getName();
+    console.log("Name->",this.name);
+  }
 }

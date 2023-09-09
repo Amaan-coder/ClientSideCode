@@ -54,6 +54,17 @@ export class ServiceService {
     sessionStorage.removeItem('role');
   }
 
+  setName(name:any){
+    sessionStorage.setItem('name',name);
+  }
+  getName(){
+    const name = sessionStorage.getItem('name');
+    return name;
+  }
+  removeName(){
+    sessionStorage.removeItem('name');
+  }
+
   hasAdmin():boolean{
     if(this.getRole()=='admin'){
       return true;
