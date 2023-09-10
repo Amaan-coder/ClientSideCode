@@ -19,7 +19,7 @@
       </ul>
       <!-- logout button -->
       <!-- <div class="d-flex align-items-center"> -->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" *ngIf="commService.isLoggedIn()">
+        <!-- <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" *ngIf="commService.isLoggedIn()">
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
               <ul class="dropdown-menu dropdown-menu-end" style="max-width:30%;">
@@ -28,7 +28,19 @@
                   <li><button class="dropdown-item  text" (click)="logout()">Logout</button></li>
               </ul>
           </li>
-      </ul>
+      </ul> -->
+ 
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" *ngIf="commService.isLoggedIn()">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><span class="dropdown-item" >Welcome,{{commService.getName()}}</span></li>
+                
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
 
         <!-- <button class="btn btn-danger" *ngIf="commService.isLoggedIn()" type="submit" (click)="logout()">
           Logout
