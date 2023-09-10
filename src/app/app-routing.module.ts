@@ -11,6 +11,7 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { GuardGuard } from './config/guard.guard';
 import { MainComponent } from './main/main.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginGuard } from './config/login.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate:[LoginGuard]
   },
   {
     path: 'signup',
