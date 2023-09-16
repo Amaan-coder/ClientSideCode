@@ -6,6 +6,8 @@ import { EmployeeComponent } from '../employee.component';
 import { ADD_EMPLOYEE } from 'src/auth';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl, Form, FormControl, Validators } from '@angular/forms';
+import { Observable, Observer } from 'rxjs';
+import { ResponseDto } from 'src/common/common-model';
 
 @Component({
   selector: 'app-addemployee',
@@ -47,10 +49,19 @@ export class AddemployeeComponent implements OnInit {
   onSubmit() {
 
     if (this.firstName.valid && this.lastName.valid && this.add1.valid && this.add2.valid && this.city.valid && this.state.valid && this.phone.valid && this.email.valid && this.pin.valid && this.company.valid) {
-      this.common.httpPost(ADD_EMPLOYEE, this.employee).subscribe(data => {
-        this.toastr.success("Data Added Successfully");
-        this.router.navigate(['/main/employeeList']);
-      })
+
+
+      this.common.httpPost(ADD_EMPLOYEE, this.employee).subscribe({
+        next: data=>{
+          this.toastr.success("Employee added sucessfully");
+          this.router.navigate(['/main/employeeList']);
+        },
+        error: error=>{
+          this.toastr.error(error.error.message, 'Something went wrong');
+        }
+      } as Observer<ResponseDto> ) 
+
+
     }
     else {
       this.toastr.warning("Please fill the mandatory fields or Invalid Fields");
