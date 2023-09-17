@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     if(this.email.valid && this.password.valid){
       this.common.httpPost(LOGIN, this.user).subscribe({
         next: (data) => {
-          this.toastr.success(data.response.role[0].roleDes, 'Login Sucessfully');
+          this.toastr.success("Welcome! "+data.response.fullName, 'Login Sucessfully');
           this.common.setLoggedIn(); //For login
           this.name = data.response.fullName;
           this.role = data.response.role[0].role;

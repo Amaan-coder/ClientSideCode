@@ -11,11 +11,7 @@ export class MainComponent implements OnInit {
   constructor(private common:ServiceService) { }
 
   ngOnInit(): void {
-    this.getName();
+    
   }
-  getName(){
-   
-    this.name = this.common.getName();
-    console.log("Name->",this.name);
-  }
+ 
 }
