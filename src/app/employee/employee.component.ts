@@ -13,8 +13,10 @@ import { ServiceService } from 'src/common/service.service';
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
-
-  employeeList: any;
+  employeeList: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 5; // Number of items to display per page
+ 
   employee:Employee=new Employee();
 
   constructor(private route:Router,public common:ServiceService) { }
@@ -45,5 +47,13 @@ export class EmployeeComponent implements OnInit {
       }
     })
   }
+  onPageChange(page: number) {
+    this.currentPage = page;
+  }
 
+  get paginatedEmployeeList() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.employeeList.slice(startIndex, endIndex);
+  } 
 }

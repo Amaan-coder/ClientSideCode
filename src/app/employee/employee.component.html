@@ -1,4 +1,4 @@
-<div class="container"  >
+<div class="container page-container"  >
   <nav aria-label="breadcrumb">
      <ol class="breadcrumb">
        <li class="breadcrumb-item"> <a routerLink="/main"><i class="bi bi-house-door-fill home "
@@ -59,7 +59,7 @@
                </tr>
              </thead>
              <tbody>
-               <tr *ngFor="let employeeList of employeeList;let i=index">
+               <tr *ngFor="let employeeList of paginatedEmployeeList;let i=index">
                 
                  <td>{{employeeList.firstName}} {{employeeList.lastName}}</td>
                  <td>{{employeeList.email}}</td>
@@ -76,11 +76,16 @@
              </tbody>
        </table>
      </div>
-     
+     <app-pagination
+     [currentPage]="currentPage"
+     [itemsPerPage]="itemsPerPage"
+     [totalItems]="employeeList.length"
+     (pageChange)="onPageChange($event)"
+   ></app-pagination>
  
      </div>
  
- 
+  
    </div>
  
  </div>

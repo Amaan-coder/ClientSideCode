@@ -10,6 +10,8 @@ import { ServiceService } from 'src/common/service.service';
 export class UserlistComponent implements OnInit {
   roleList:any=[];
   userList:any=[];
+  currentPage: number = 1;
+  itemsPerPage: number = 5; 
   constructor(private common:ServiceService) { }
 
   ngOnInit(): void {
@@ -24,4 +26,13 @@ export class UserlistComponent implements OnInit {
       this.roleList = data.response.role;
     })
   }
+  onPageChange(page: number) {
+    this.currentPage = page;
+  }
+
+  get paginatedEmployeeList() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.userList.slice(startIndex, endIndex);
+  } 
 }

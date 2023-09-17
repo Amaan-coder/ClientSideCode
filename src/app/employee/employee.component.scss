@@ -220,3 +220,8 @@ a:link {
     width: 90px;
   }
 }
+.page-container {
+  min-height: calc(100vh - 100px); /* Adjust the value (100px) according to your footer's height */
+  margin-bottom: 100px; /* Same value as the footer's height */
+  padding-bottom: 20px; /* Add some padding to separate content from the footer */
+}

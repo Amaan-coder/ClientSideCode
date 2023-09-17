@@ -1,41 +1,58 @@
-<div class="vh-100">
-    <header class="bg-dark text-white text-center py-5">
-            <div class="container">
-                <h1 class="display-4">Streamline Your Employee Management</h1>
-                <p class="lead">Efficiently manage your workforce with our powerful employee management system.</p>
-                <button href="#"  class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;" >Get Started</button>
-            </div>
-        </header>
-    
-        <section id="features" class="py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Employee Records</h3>
-                                <p class="card-text">Store and access comprehensive employee records with ease.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Attendance Tracking</h3>
-                                <p class="card-text">Efficiently track employee attendance and working hours.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Performance Evaluation</h3>
-                                <p class="card-text">Conduct performance evaluations and manage employee growth.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+<div class="landing-container">
+    <header>
+      <h1>Welcome to Employee Management System</h1>
+      <p>Your one-stop solution for managing employees</p>
+    </header>
+  
+    <!-- Features section -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>Key Features</h2>
+        <p>Explore what our system offers</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <img src="assets/img/add-employee.png" alt="Add Employee" />
+          <h3>Add Employees</h3>
+          <p>Easily add new employees to your database.</p>
+        </div>
+        <div class="feature">
+          <img src="assets/img/edit-employee.png" alt="Edit Employee" />
+          <h3>Edit Employees</h3>
+          <p>Edit and update employee information with ease.</p>
+        </div>
+        <div class="feature">
+          <img src="assets/img/employee-list.png" alt="Employee List" />
+          <h3>Employee List</h3>
+          <p>View and manage your employees in one place.</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Benefits section -->
+    <section class="section">
+      <div class="section-heading">
+        <h2>Benefits</h2>
+        <p>Discover the advantages of our system</p>
+      </div>
+      <div class="benefits">
+        <div class="benefit">
+          <i class="fas fa-chart-line"></i>
+          <h3>Improved Efficiency</h3>
+          <p>Streamline your HR processes and save time.</p>
+        </div>
+        <div class="benefit">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Data Security</h3>
+          <p>Your employee data is safe and secure with us.</p>
+        </div>
+        <div class="benefit">
+          <i class="fas fa-users"></i>
+          <h3>Team Collaboration</h3>
+          <p>Enhance teamwork with our collaborative tools.</p>
+        </div>
+      </div>
+    </section>
+  
+    <a routerLink="/main/employeeList" class="cta-button">Get Started</a>
+  </div>
