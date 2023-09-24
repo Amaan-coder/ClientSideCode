@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from 'src/common/service.service';
-import { ADD_EMPLOYEE, EMPLOYEE_DETAILS } from 'src/auth';
+import { ADD_EMPLOYEE, EMPLOYEE_DETAILS, UPDATE_EMPLOYEE } from 'src/auth';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl, FormControl, Validators } from '@angular/forms';
 
@@ -52,7 +52,7 @@ export class EditemployeeComponent implements OnInit {
  }
   onSubmit() {
     if (this.firstName.valid && this.lastName.valid && this.add1.valid && this.add2.valid && this.city.valid && this.state.valid && this.phone.valid && this.email.valid && this.pin.valid && this.company.valid) {
-      this.common.httpPost(ADD_EMPLOYEE, this.employee).subscribe(data => {
+      this.common.httpPost(UPDATE_EMPLOYEE + this.id, this.employee).subscribe(data => {
         this.toastr.success("Employee Edited Successfully");
         this.router.navigate(['/main/employeeList']);
       })
